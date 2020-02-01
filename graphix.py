@@ -59,15 +59,15 @@ class graphix():
         counter = 0
         row = []
         for i in self.visu[y]:
-            if i == '⬛':
-                row.append('⬜')
+            if i == '1':
+                row.append('0')
             else:
-                row.append('⬛')
+                row.append('1')
         self.visu[y] = row
     def cleargraphix(self):
         for i in range(self.ylen):
             for a in range(self.xlen):
-                if self.visu[i][a] == '⬜':
+                if self.visu[i][a] == '0':
                     self.visu[i][a] = '  '
 
 def codemaker(x,y,name):

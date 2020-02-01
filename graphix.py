@@ -87,3 +87,5 @@ def codemaker(x,y,name):
         x1 = str(x1)
         y1 = str(y1)
         lines.append('{0}.togglecell({1}, {2})'.format(name,x1,y1))
+        for i in lines:
+            print(i)

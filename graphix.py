@@ -8,7 +8,7 @@ class graphix():
         while counter != self.ylen:
             for i in range(self.xlen):
                 if len(row) != x:
-                    row.append('⬜')
+                    row.append('0')
                 else:
                     visu.append(row)
                     row = []
@@ -45,16 +45,16 @@ class graphix():
             disp = ''
         print(disp)
     def togglecell(self,x,y):
-        if self.visu[y][x] == '⬛':
-            self.visu[y][x] = '⬜'
+        if self.visu[y][x] == '1':
+            self.visu[y][x] = '0'
         else:
-            self.visu[y][x] = '⬛'
+            self.visu[y][x] = '1'
     def togglevert(self,x):
         for i in self.visu:
-            if i[x] == '⬛':
-                i[x] = '⬜'
+            if i[x] == '1':
+                i[x] = '0'
             else:
-                i[x] = '⬛'
+                i[x] = '1'
     def togglehori(self,y):
         counter = 0
         row = []

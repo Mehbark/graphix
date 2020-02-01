@@ -20,8 +20,8 @@ class graphix():
         temp.printgraphix()
         #sleep(0.5)
     def printgraphixlab(self):
-        disp = ''
-        xlab = '  '
+        disp = ' '
+        xlab = '   '
         cntr = 0
         for i in range(self.xlen):
             xlab += '{0} '.format(i)
@@ -29,10 +29,13 @@ class graphix():
         for i in self.visu:
             for h in i:
                 disp += h
-            cnt = '{0} '.format(str(cntr))
+            if len(str(cntr)) == 1:
+                cnt = '{0} '.format(str(cntr))
+            else:
+                cnt = str(cntr)
             print(cnt + disp)
             cntr += 1
-            disp = ''
+            disp = ' '
         print(disp)
     def printgraphix(self):
         disp = ''

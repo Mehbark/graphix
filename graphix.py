@@ -8,7 +8,7 @@ class graphix():
         while counter != self.ylen:
             for i in range(self.xlen):
                 if len(row) != x:
-                    row.append('0')
+                    row.append('0 ')
                 else:
                     visu.append(row)
                     row = []
@@ -45,29 +45,29 @@ class graphix():
             disp = ''
         print(disp)
     def togglecell(self,x,y):
-        if self.visu[y][x] == '1':
-            self.visu[y][x] = '0'
+        if self.visu[y][x] == '1 ':
+            self.visu[y][x] = '0 '
         else:
-            self.visu[y][x] = '1'
+            self.visu[y][x] = '1 '
     def togglevert(self,x):
         for i in self.visu:
-            if i[x] == '1':
-                i[x] = '0'
+            if i[x] == '1 ':
+                i[x] = '0 '
             else:
-                i[x] = '1'
+                i[x] = '1 '
     def togglehori(self,y):
         counter = 0
         row = []
         for i in self.visu[y]:
-            if i == '1':
-                row.append('0')
+            if i == '1 ':
+                row.append('0 ')
             else:
-                row.append('1')
+                row.append('1 ')
         self.visu[y] = row
     def cleargraphix(self):
         for i in range(self.ylen):
             for a in range(self.xlen):
-                if self.visu[i][a] == '0':
+                if self.visu[i][a] == '0 ':
                     self.visu[i][a] = '  '
 
 def codemaker(x,y,name):

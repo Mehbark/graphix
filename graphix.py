@@ -22,27 +22,27 @@ class graphix():
     def printgraphixlab(self):
         disp = ' '
         xlab = '   '
+        xlab2= '   '
         cntr = 0
         for i in range(self.xlen):
             if len(str(i)) == 1:
-                xlab += '{0}  '.format(i)
+                xlab += '{0} '.format(i)
+                xlab2+= '  '
             else:
-                xlab += str(i)
-                xlab += ' '
+                xlab += str(i)[0] + ' '
+                xlab2+= str(i)[1] + ' '
         print(xlab)
+        print(xlab2)
         for i in self.visu:
             for h in i:
                 disp += h
-                disp += ' '
             if len(str(cntr)) == 1:
                 cnt = '{0} '.format(str(cntr))
             else:
                 cnt = str(cntr)
             print(cnt + disp)
-            print()
             cntr += 1
             disp = ' '
-        print(disp)
     def printgraphix(self):
         disp = ''
         cntr = 0

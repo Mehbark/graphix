@@ -1,0 +1,89 @@
+class graphix():
+    def __init__(self,x,y):
+        self.xlen = x
+        self.ylen = y
+        row = []
+        visu = []
+        counter = 0
+        while counter != self.ylen:
+            for i in range(self.xlen):
+                if len(row) != x:
+                    row.append('⬜')
+                else:
+                    visu.append(row)
+                    row = []
+                    counter += 1
+        self.visu = visu
+    def clearprint(self):
+        temp = self
+        temp.cleargraphix()
+        temp.printgraphix()
+        #sleep(0.5)
+    def printgraphixlab(self):
+        disp = ''
+        xlab = '  '
+        cntr = 0
+        for i in range(self.xlen):
+            xlab += '{0} '.format(i)
+        print(xlab)
+        for i in self.visu:
+            for h in i:
+                disp += h
+            cnt = '{0} '.format(str(cntr))
+            print(cnt + disp)
+            cntr += 1
+            disp = ''
+        print(disp)
+    def printgraphix(self):
+        disp = ''
+        cntr = 0
+        for i in self.visu:
+            for h in i:
+                disp += h
+            print(disp)
+            cntr += 1
+            disp = ''
+        print(disp)
+    def togglecell(self,x,y):
+        if self.visu[y][x] == '⬛':
+            self.visu[y][x] = '⬜'
+        else:
+            self.visu[y][x] = '⬛'
+    def togglevert(self,x):
+        for i in self.visu:
+            if i[x] == '⬛':
+                i[x] = '⬜'
+            else:
+                i[x] = '⬛'
+    def togglehori(self,y):
+        counter = 0
+        row = []
+        for i in self.visu[y]:
+            if i == '⬛':
+                row.append('⬜')
+            else:
+                row.append('⬛')
+        self.visu[y] = row
+    def cleargraphix(self):
+        for i in range(self.ylen):
+            for a in range(self.xlen):
+                if self.visu[i][a] == '⬜':
+                    self.visu[i][a] = '  '
+
+def codemaker(x,y,name):
+    temp = graphix(x,y)
+    lines = []
+    temp.printgraphixlab()
+    while True:
+        x1, y1 = [int(x) for x in input("Enter: 'x y' ('500 500' to stop) ").split()]
+        if x1 == 500 and y1 == 500:
+            print('{0} = graphix({1}, {2})'.format(name,x,y))
+            for i in lines:
+                print(i)
+            print('{0}.clearprint()'.format(name))
+            break
+        temp.togglecell(x1,y1)
+        temp.printgraphixlab()
+        x1 = str(x1)
+        y1 = str(y1)
+        lines.append('{0}.togglecell({1}, {2})'.format(name,x1,y1))

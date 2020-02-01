@@ -24,16 +24,22 @@ class graphix():
         xlab = '   '
         cntr = 0
         for i in range(self.xlen):
-            xlab += '{0} '.format(i)
+            if len(str(i)) == 1:
+                xlab += '{0}  '.format(i)
+            else:
+                xlab += str(i)
+                xlab += ' '
         print(xlab)
         for i in self.visu:
             for h in i:
                 disp += h
+                disp += ' '
             if len(str(cntr)) == 1:
                 cnt = '{0} '.format(str(cntr))
             else:
                 cnt = str(cntr)
             print(cnt + disp)
+            print()
             cntr += 1
             disp = ' '
         print(disp)
